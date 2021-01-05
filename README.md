@@ -1,0 +1,2 @@
+# FancyPompt
+Based on OhMyPosh
