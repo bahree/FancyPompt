@@ -1,103 +1,99 @@
 {
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh3/main/themes/schema.json",
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "blocks": [
     {
-      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-          "type": "path",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
-          "foreground": "#ffffff",
           "background": "#ff479c",
-          "properties": {
-            "prefix": " \uE5FF ",
-            "style": "folder"
-          }
-        },
-        {
-          "type": "git",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
-          "foreground": "#193549",
-          "background": "#fffb38",
-          "properties": {
-            "display_stash_count": true,
-            "display_upstream_icon": true
-          }
-        },
-        {
-          "type": "battery",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
-          "foreground": "#193549",
-          "background": "#f36943",
-          "properties": {
-            "battery_icon": "",
-            "color_background": true,
-            "charged_color": "#4caf50",
-            "charging_color": "#40c4ff",
-            "discharging_color": "#ff5722",
-            "postfix": "\uF295 "
-          }
-        },
-        {
-          "type": "node",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
           "foreground": "#ffffff",
-          "background": "#6CA35E",
+          "powerline_symbol": "\ue0b0",
           "properties": {
-            "prefix": " \uE718 "
-          }
+            "style": "folder"
+          },
+          "style": "powerline",
+          "template": " \ue5ff {{ .Path }} ",
+          "type": "path"
         },
         {
-          "type": "time",
-          "style": "plain",
+          "background": "#fffb38",
+          "foreground": "#193549",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "fetch_stash_count": true,
+            "fetch_upstream_icon": true
+          },
+          "style": "powerline",
+          "template": " {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
+          "type": "git"
+        },
+        {
+          "background": "#f36943",
+          "background_templates": [
+            "{{ if eq \"Full\" .State.String }}#4caf50{{ end }}",
+            "{{ if eq \"Charging\" .State.String }}#40c4ff{{ end }}",
+            "{{ if eq \"Discharging\" .State.String }}#ff5722{{ end }}"
+          ],
+          "foreground": "#193549",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}\uf295 ",
+          "type": "battery"
+        },
+        {
+          "background": "#6CA35E",
+          "foreground": "#ffffff",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "type": "node"
+        },
+        {
           "foreground": "#007ACC",
           "properties": {
             "time_format": "15:04"
-          }
+          },
+          "style": "plain",
+          "template": " {{ .CurrentDate | date .Format }} ",
+          "type": "time"
         },
         {
-          "type": "spotify",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
-          "foreground": "#ffffff",
-          "background": "#1BD760",
-          "properties": {
-            "prefix": "\uF9C6 ",
-            "playing_icon": "\uF602 ",
-            "paused_icon": "\uF8E3 ",
-            "stopped_icon": "\uF04D ",
-            "track_separator" : " - "
-          }
-        },
-        {
-          "type": "root",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
+          "background": "#ffff66",
           "foreground": "#193549",
-          "background": "#ffff66"
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " \uf0e7 ",
+          "type": "root"
         },
         {
-          "type": "exit",
-          "style": "diamond",
-          "foreground": "#ffffff",
           "background": "#2e9599",
-          "leading_diamond": "",
-          "trailing_diamond": "\uE0B4",
+          "background_templates": [
+            "{{ if gt .Code 0 }}#f1184c{{ end }}"
+          ],
+          "foreground": "#ffffff",
           "properties": {
-            "display_exit_code": false,
-            "always_enabled": true,
-            "error_color": "#f1184c",
-            "color_background": true,
-            "prefix": "<transparent>\uE0B0</> \uE23A"
-          }
+            "always_enabled": true
+          },
+          "style": "diamond",
+          "template": "<transparent>\ue0b0</> \ue23a{{ if gt .Code 0 }}\uf00d{{ else }}\uf42e{{ end }} ",
+          "trailing_diamond": "\ue0b4",
+          "type": "exit"
+        },
+        {
+          "background": "#8822ee",
+          "background_templates": [
+            "{{ if (lt .Signal 60) }}#DDDD11{{ else if (lt .Signal 90) }}#DD6611{{ else }}#11CC11{{ end }}"
+          ],
+          "foreground": "#222222",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}\ufaa8 {{ .SSID }} {{ .Signal }}% {{ .ReceiveRate }}Mbps{{ end }} ",
+          "type": "wifi"
         }
-      ]
+      ],
+      "type": "prompt"
     }
   ],
-  "final_space": true
+  "final_space": true,
+  "version": 2
 }
