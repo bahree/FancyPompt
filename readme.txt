@@ -1,3 +1,8 @@
+Launch Terminal as admin and then:
+notepad $PROFILE.AllUsersAllHosts
+
+oh-my-posh init pwsh --config C:\src\FancyPompt\amit-velvet.omp.json | Invoke-Expression
+
 oh-my-posh init pwsh --config ~\markbull.omp.json | Invoke-Expression
 
 Get-PoshThemes

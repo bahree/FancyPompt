@@ -153,11 +153,11 @@
         "newline": true,
         "segments": [
           {
-              "type": "text",
-              "style": "plain",
-              "foreground": "#E06C75",
-              "template": "$"
-            }
+            "foreground": "lightBlue",
+            "style": "plain",
+            "template": "<{{ if .Root }}lightBlue{{ else }}green{{ end }}>\u2514\u2500</>{{ if .Root }}<lightRed>#</>{{ else }}${{ end }} ",
+            "type": "text"
+          }
         ],
         "type": "prompt"
       },
