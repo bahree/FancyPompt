@@ -9,11 +9,11 @@
             "background": "#4c1f5e",
             "foreground": "#EFDCF9",
             "properties": {
-              "time_format": "15:04:05"
+              "time_format": "3:04:05 PM | Mon"
             },
             "style": "diamond",
-            "template": " {{ .CurrentDate | date .Format }} ",
-            "trailing_diamond": "\ue0b4",
+            "template": " \uf64f {{ .CurrentDate | date .Format }}",
+            "trailing_diamond": "\ue0b0",
             "type": "time"
           },
           {
@@ -24,7 +24,7 @@
               "display_host": true
             },
             "style": "powerline",
-            "template": "{{ .UserName }}<#0077c2>@</><#e06c75>{{ .HostName }}</> ",
+            "template": "<#0077c2>{{ .HostName }}</> ",
             "type": "session"
           },
           {
@@ -51,10 +51,11 @@
               "apikey": "7bd6653a53911966eb7bac5becb0b6d3",
               "location": "BELLEVUE,US-WA,US",
               "units": "imperial",
-              "http_timeout": 800,
-              "cache_timeout": 10
+              "http_timeout": 400,
+              "cache_timeout": 15
             }
-          },
+          }
+          ,
         {
           "background": "#8822ee",
           "background_templates": [

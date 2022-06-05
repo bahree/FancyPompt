@@ -5,6 +5,10 @@ oh-my-posh init pwsh --config C:\src\FancyPompt\amit-velvet.omp.json | Invoke-Ex
 
 oh-my-posh init pwsh --config ~\markbull.omp.json | Invoke-Expression
 
+Debug:
+oh-my-posh debug 
+
+See all themes:
 Get-PoshThemes
 
 Themes location: C:\Users\bahre\AppData\Local\Programs\oh-my-posh\themes
