@@ -49,7 +49,7 @@
             "template": "[{{.Weather}} ({{.Temperature}}{{.UnitIcon}})]({{.URL}})",
             "properties": {
               "apikey": "7bd6653a53911966eb7bac5becb0b6d3",
-              "location": "BELLEVUE,US-WA,US",
+              "location": "BELLEVUE,US",
               "units": "imperial",
               "http_timeout": 400,
               "cache_timeout": 15
