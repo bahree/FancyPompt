@@ -165,18 +165,16 @@
         "alignment": "right",
         "segments": [
           {
-            "background": "#4c1f5e",
-            "foreground": "#E4F34A",
-            "leading_diamond": " \ue0b6",
+            "foreground": "#FFE873",
+            "leading_diamond": "\ue0b6",
+            "style": "diamond",
             "properties": {
-              "fetch_version": false,
               "fetch_virtual_env": true,
               "display_mode": "environment",
               "home_enabled": true
             },
-            "style": "diamond",
-            "template": "\ue235{{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}",
-            "trailing_diamond": "\ue0b4",
+            "template": "\ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}",
+            "trailing_diamond": "\ue0b4 ",
             "type": "python"
           },
           {
