@@ -171,6 +171,7 @@
             "properties": {
               "fetch_virtual_env": true,
               "display_mode": "environment",
+              "fetch_version": false,
               "home_enabled": true
             },
             "template": "\ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}",
